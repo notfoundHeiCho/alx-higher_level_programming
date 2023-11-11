@@ -5,8 +5,6 @@ import json
 import csv
 import turtle
 
-"""Module for Base class."""
-from json import, loads
 
 class Base:
     """Base model.
@@ -188,11 +186,3 @@ class Base:
             turt.hideturtle()
 
         turtle.exitonclick()
-
-     @staticmethod
-    def to_json_string(list_dictionaries):
-        '''Jsonifies a dictionary so it's quite rightly and longer.'''
-        if list_dictionaries is None or not list_dictionaries:
-            return "[]"
-        else:
-            return dumps(list_dictionaries)
