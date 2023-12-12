@@ -1,5 +1,3 @@
--- lists all records of second table where name is not NULL ordered by score
-SELECT score, name
-FROM second_table
-WHERE name IS NOT NULL
-ORDER BY score DSEC;
+-- Computes the average score of all records in the table second_table in my MySQL server.
+SELECT AVG(`score`) AS `average`
+FROM `second_table`;
