@@ -1,5 +1,4 @@
 #!/usr/bin/node
-
 // prints strings using a loop
 
 let i;
