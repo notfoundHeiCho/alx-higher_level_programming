@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""script that lists all cities  objects from a given database
+""" prints the State object with the name passed as argument from the database
 """
 import sys
-from model_state import Base, State
-from model_city import City
+from relationship_state import Base, State
+from relationship_city import City
 
 from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
@@ -15,6 +15,7 @@ if __name__ == "__main__":
                            pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
     session = Session()
-    cities = session.query(State, City).filter(City.state_id == State.id)
-    for state, city in cities.order_by(City.id).all():
-        print("{}: ({}) {}".format(state.name, city.id, city.name))
+    query = session.query(State).join(City).order_by(City.id)
+    for state in query.all():
+        for city in state.cities:
+            print("{}: {} -> {}".format(city.id, city.name, state.name))
