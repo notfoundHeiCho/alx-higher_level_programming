@@ -1,3 +1,3 @@
-#1/bin/bash
-# cUrL a JSON file
-curl -s $1 -d '@$2' -X POST -H "Content-Type: application/json"
+#!/bin/bash
+# Sends a JSon POST request to a given URL with a given JSON file.
+curl -s -H "Content-Type: application/json" -d "$(cat "$2")" "$1"
