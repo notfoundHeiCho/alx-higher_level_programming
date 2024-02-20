@@ -1,9 +1,11 @@
 #!/usr/bin/node
 const fs = require('fs');
-const file = process.argv[2];
-const str = process.argv[3];
-try {
-  fs.writeFileSync(file, str, { encoding: 'utf8 ' });
-} catch (error) {
-  console.error(error);
-}
+
+const filePath = process.argv[2];
+const string = process.argv[3];
+
+fs.writeFile(filePath, string, 'utf8', (err) => {
+  if (err) {
+    console.error(err);
+  }
+});
